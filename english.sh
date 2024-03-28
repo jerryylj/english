@@ -32,6 +32,7 @@ check_word()
     _english=$(echo "${continent}" | cut -d"," -f1)
     _chinese=$(echo "${continent}" | cut -d"," -f2)
 
+    clear
     echo "剩余：${g_last}"
     echo "中文释义：${_chinese}"
     read -p "请输入对应的英文单词：" input_word
@@ -53,7 +54,6 @@ for _i in $(seq 1 ${g_total_words}); do
         check_word "${line}"
         if [ $? -eq 0 ]; then
             g_last=$((g_last-1))
-            clear
             g_error_flag=0
             break
         else
@@ -62,7 +62,6 @@ for _i in $(seq 1 ${g_total_words}); do
                 g_error_flag=1
             fi
             sleep 5
-            clear
             continue
         fi
     done
