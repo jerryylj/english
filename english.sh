@@ -29,8 +29,8 @@ g_last=${g_total_words}
 check_word()
 {
     continent=${1}
-    _english=$(echo "${continent}" | cut -d"," -f1)
-    _chinese=$(echo "${continent}" | cut -d"," -f2)
+    _english=$(echo "${continent}" | cut -d"," -f2)
+    _chinese=$(echo "${continent}" | cut -d"," -f3)
 
     clear
     echo "剩余：${g_last}"
