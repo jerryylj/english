@@ -34,11 +34,15 @@ check_word()
 
     clear
     echo "剩余：${g_last}"
+    if [ ! -z "${last_one}" ]; then
+        echo "上一条：${last_one}"
+    fi
     echo "中文释义：${_chinese}"
     read -p "请输入对应的英文单词：" input_word
 
     if [ "$input_word" == "${_english}" ]; then
         echo "正确！"
+        last_one=${continent}
         return 0
     else
         echo "错误！正确答案是：${_english}"
