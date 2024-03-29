@@ -45,6 +45,10 @@ check_word()
         last_one=${continent}
         return 0
     else
+        if [ "$input_word" == "+1" ]; then
+            echo "${last_one}" >> ./error.csv
+            check_word ${1}
+        fi
         echo "错误！正确答案是：${_english}"
         if [ "$input_word" != "" ]; then
             sleep 5
