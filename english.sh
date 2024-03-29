@@ -46,6 +46,9 @@ check_word()
         return 0
     else
         echo "错误！正确答案是：${_english}"
+        if [ "$input_word" != "" ]; then
+            sleep 5
+        fi
         return 1
     fi
 }
@@ -65,7 +68,6 @@ for _i in $(seq 1 ${g_total_words}); do
                 echo "${line}" >> ./error.csv
                 g_error_flag=1
             fi
-            sleep 5
             continue
         fi
     done
