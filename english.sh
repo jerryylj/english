@@ -19,7 +19,7 @@ fi
 
 # 读取CSV文件，并乱序保存
 g_tmp_file="./tmp.csv"
-cat ${1} | tail -n +2 | sort -r > "${g_tmp_file}"
+cat ${1} | tail -n +2 | grep -E "^[0-9]*,"| sort -r > "${g_tmp_file}"
 
 # 计算单词总数
 g_total_words=$(cat ${g_tmp_file} | wc -l | sed "s/ //g")
