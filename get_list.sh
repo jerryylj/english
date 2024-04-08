@@ -1,3 +1,8 @@
 #!/bin/bash
 
-cat ${1} | cut -d"," -f2 | tr "\r\n" ","
+if [ -z "${1}" ]; then
+    echo "input file"
+    exit 1
+fi
+
+cat ${1} | cut -d"," -f2 | tr "\r\n" "," > ./list.txt
